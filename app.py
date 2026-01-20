@@ -2,7 +2,9 @@ import streamlit as st
 import pandas as pd
 
 upload = st.file_uploader('Upload your unedited .csv from CC. It will not leave your private instance of this website, meaning nobody will have access to it.')
-df= pd.read_csv(upload)
+
+if upload != None:
+    df = pd.read_csv(upload)
 
 def process(df=df):
     for postcode in df.postcode.unique():
